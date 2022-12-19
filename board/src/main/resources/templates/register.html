@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<link href="CSS/register.css" rel="stylesheet" type="text/css">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      background-image: url(http://www.ypppt.com/uploads/allimg/151029/1-151029213109.jpg);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+    }
+    .centerEmail{
+      position: absolute;
+      left: 44.5%;
+      top: 41%;
+    }
+    .centerUsername{
+      position: absolute;
+      left: 44.5%;
+      top: 45%;
+    }
+    .centerPassword{
+      position: absolute;
+      left: 44.5%;
+      top: 49%;
+    }
+    .centerRegister{
+      position: absolute;
+      left: 48.5%;
+      top: 56.5%;
+    }
+    .registerHead{
+      color: #2a2a38;
+      font-family:arial;
+      font-size: 3.5ex;
+      position: absolute;
+      left: 48.5%;
+      top: 30%;
+    }
+    .creat_account{
+      color: #fd9901;
+      font-family:arial;
+      font-size: 2ex;
+      margin: 1px;
+    }
+    .errorPlace{
+      font-family: impact;
+      position: absolute;
+      left: 47%;
+      top: 52.5%;
+    }
+  </style>
+</head>
+<body>
+<img src="https://media.tenor.com/OiEJht3qg-EAAAAi/takodachi-ina.gif" width="200" height="200" style="display:block; margin:auto;" alt="My test image">
+<!--註冊-->
+<h1 class="registerHead" th:text="${name}"></h1>
+<div th:if="${error}">
+  <div class="errorPlace" th:text="${error}"></div>
+</div>
+<!--輸入Email-->
+<form  method="post" action="/register" th:object="${user}">
+  <div class="centerEmail">
+    <input type="email" id="email" name="email" placeholder="Email" th:field="*{email}" />
+  </div>
+  <!--輸入Username-->
+  <div class="centerUsername">
+    <input type="text" id="username" name="username" placeholder="Username" th:field="*{username}" />
+  </div>
+  <!--輸入Password-->
+  <div class="centerPassword">
+    <input type="password" id="password" name="password" placeholder="Password" th:field="*{password}" />
+  </div>
+  <!--註冊按鈕-->
+  <div class="centerRegister">
+    <button type="submit"><span><a class="creat_account">註冊</a></span></button>
+  </div>
+</form>
+</body>
+</html>

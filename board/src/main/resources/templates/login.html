@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      background-image: url(http://www.ypppt.com/uploads/allimg/151029/1-151029213109.jpg);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+    }
+    .centerUsername{
+      position: absolute;
+      left: 44.5%;
+      top: 41%;
+    }
+    .centerPassword{
+      position: absolute;
+      left: 44.5%;
+      top: 45%;
+    }
+    .centerLogin{
+      position: absolute;
+      left: 48.5%;
+      top: 56.5%;
+      color: #fd9901;
+      font-family:arial;
+      font-size: 2ex;
+      margin: 1px;
+    }
+    .errorPlace{
+      font-family: impact;
+      position: absolute;
+      left: 46.3%;
+      top: 51%;
+    }
+    .loginHead{
+      color: #2a2a38;
+      font-family:arial;
+      font-size: 3.5ex;
+      position: absolute;
+      left: 48.5%;
+      top: 30%;
+    }
+  </style>
+</head>
+<body>
+<h1 class="loginHead">登入</h1>
+<img src="https://media.tenor.com/OiEJht3qg-EAAAAi/takodachi-ina.gif" width="200" height="200" style="display:block; margin:auto;" alt="My test image">
+<!--輸入Username-->
+<form  method="post" action="/login">
+  <div class="centerUsername">
+    <input type="text" id="username" name="username" placeholder="Username">
+  </div>
+  <!--輸入Password-->
+  <div class="centerPassword">
+    <input type="password" id="password" name="password" placeholder="Password">
+  </div>
+  <div th:if="${param.error}">
+    <div class="errorPlace">帳號或密碼錯誤</div>
+  </div>
+  <button  type="submit" class="centerLogin">登入</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:secc="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+  <meta charset="UTF-8">
+  <title>Board</title>
+  <style>
+    .home_up {
+      background: #fd9901;
+    }
+    nav {
+      flex: 1;
+      text-align: right;
+    }
+    nav ul {
+      display: inline-block;
+      list-style-type: none;
+    }
+    nav ul li {
+      display: inline-block;
+      margin-right: 30px;
+    }
+    a {
+      color: #563434;
+    }
+    h1 {
+      color: #2a2a38;
+    }
+    .log_block{
+      right: 0%;
+    }
+  </style>
+</head>
+<body>
+<div class="home_up">
+  <h1><b><l><font face="DFKai-sb">書籍留言板</font></l></b></h1>
+  <nav>
+    <ul class="log_block">
+      <li>
+        <a href="/login" sec:authorize="!isAuthenticated()">Login</a>
+      </li>
+      <li class="nav-item">
+        <a href="/register" sec:authorize="!isAuthenticated()">Register</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+
+<div layout:fragment="content">
+  <p>This is filled by the content template.</p>
+</div>
+
+</body>
+</html>
